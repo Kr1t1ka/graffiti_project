@@ -171,7 +171,7 @@ def login_page():
     else:
         flash('Неверный логин или пароль')
 
-    return render_template('login.html')
+    return render_template('login.html', user=_get_user())
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -194,7 +194,7 @@ def register():
 
             return redirect(url_for('login_page'))
 
-    return render_template('register.html')
+    return render_template('register.html', user=_get_user())
 
 
 @app.route('/logout', methods=['GET', 'POST'])
